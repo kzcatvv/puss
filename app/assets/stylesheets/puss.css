@@ -1,0 +1,26 @@
+#banner {
+	padding-top:10px;
+	padding-bottom: 10px;
+	text-align: center;
+	border-bottom: 2px solid;
+}
+
+#columns {
+	background-color: grep;
+
+}
+
+#side {
+	float:left;
+	padding-top: 1em;
+	padding-left: 1em;
+	padding-bottom: 1em;
+	width:10%;
+
+}
+
+#main {
+	margin-left: 11%;
+	padding-top:4ex;
+	padding-left: 2em;
+}

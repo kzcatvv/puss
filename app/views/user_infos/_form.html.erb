@@ -1,0 +1,67 @@
+<%= form_for(@user_info) do |f| %>
+  <% if @user_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_info.errors.count, "error") %> prohibited this user_info from being saved:</h2>
+
+      <ul>
+      <% @user_info.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_password %><br>
+    <%= f.text_field :user_password %>
+  </div>
+  <div class="field">
+    <%= f.label :user_name %><br>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :user_sex %><br>
+    <%= f.select(:user_sex, UserInfo::USER_SEX.collect{|x| [x[1],x[0]]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :user_birth %><br>
+    <%= f.text_field :user_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :user_phone_number %><br>
+    <%= f.text_field :user_phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :user_company %><br>
+    <%= f.text_field :user_company %>
+  </div>
+  <div class="field">
+    <%= f.label :user_department %><br>
+    <%= f.text_field :user_department %>
+  </div>
+  <div class="field">
+    <%= f.label :user_kind %><br>
+    <%= f.select(:user_kind, UserInfo::USER_KIND.collect{|x| [x[1],x[0]]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :user_limit %><br>
+    <%= f.number_field :user_limit %>
+
+    <%for limit in UserInfo::USER_LIMIT%>
+      <%= check_box_tag("limit[#{limit[1]}]", limit[0])%>
+      <%= limit[1] %>
+    <% end %>
+
+  </div>
+  <div class="field">
+    <%= f.label :user_info %><br>
+    <%= f.text_area :user_info %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

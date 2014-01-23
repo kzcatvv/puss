@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Puss</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "puss", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="puss">
+
+<div id="banner">CHINA POST USER SERVICE SYSTEM</div>
+<div id="columns">
+	<div id="side">
+		<%= link_to "user_info", user_infos_path %><br>
+		<%= link_to "return root", "/" %>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+</div>
+
+
+</body>
+</html>

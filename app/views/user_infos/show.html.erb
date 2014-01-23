@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_info.user_id %>
+</p>
+
+<p>
+  <strong>User password:</strong>
+  <%= @user_info.user_password %>
+</p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @user_info.user_name %>
+</p>
+
+<p>
+  <strong>User sex:</strong>
+  <%= UserInfo::USER_SEX[@user_info.user_sex] %>
+</p>
+
+<p>
+  <strong>User birth:</strong>
+  <%= @user_info.user_birth %>
+</p>
+
+<p>
+  <strong>User phone number:</strong>
+  <%= @user_info.user_phone_number %>
+</p>
+
+<p>
+  <strong>User company:</strong>
+  <%= @user_info.user_company %>
+</p>
+
+<p>
+  <strong>User department:</strong>
+  <%= @user_info.user_department %>
+</p>
+
+<p>
+  <strong>User kind:</strong>
+  <%= UserInfo::USER_KIND[@user_info.user_kind] %>
+</p>
+
+<p>
+  <strong>User limit:</strong>
+  <%= @user_info.user_limit %>
+</p>
+
+<p>
+  <strong>User info:</strong>
+  <%= @user_info.user_info %>
+</p>
+
+<%= link_to 'Edit', edit_user_info_path(@user_info) %> |
+<%= link_to 'Back', user_infos_path %>

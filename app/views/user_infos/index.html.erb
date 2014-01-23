@@ -1,0 +1,47 @@
+<h1>Listing user_infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>User password</th>
+      <th>User name</th>
+      <th>User sex</th>
+      <th>User birth</th>
+      <th>User phone number</th>
+      <th>User company</th>
+      <th>User department</th>
+      <th>User kind</th>
+      <th>User limit</th>
+      <th>User info</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_infos.each do |user_info| %>
+      <tr>
+        <td><%= user_info.user_id %></td>
+        <td><%= user_info.user_password %></td>
+        <td><%= user_info.user_name %></td>
+        <td><%= UserInfo::USER_SEX[user_info.user_sex] %></td>
+        <td><%= user_info.user_birth %></td>
+        <td><%= user_info.user_phone_number %></td>
+        <td><%= user_info.user_company %></td>
+        <td><%= user_info.user_department %></td>
+        <td><%= UserInfo::USER_KIND[user_info.user_kind] %></td>
+        <td><%= user_info.user_limit %></td>
+        <td><%= user_info.user_info %></td>
+        <td><%= link_to 'Show', user_info %></td>
+        <td><%= link_to 'Edit', edit_user_info_path(user_info) %></td>
+        <td><%= link_to 'Destroy', user_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User info', new_user_info_path %>
