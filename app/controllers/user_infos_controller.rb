@@ -14,46 +14,17 @@ class UserInfosController < ApplicationController
 
   # GET /user_infos/new
   def new
-    # puts "***********************************"
-    # if (5 & 1) == 1 
-    #   puts "5 & 1 = 1"
-    # end
-    # if (5 & 2) == 1
-    #   puts "5 & 2 = 1"
-    # end
-    # if (5 & 4)
-    #   puts "5 & 4 = 1" + String(5&4)
-    # end
-    # puts "***********************************"
     @user_info = UserInfo.new
   end
 
   # GET /user_infos/1/edit
   def edit
-        puts "***********************************"
-    puts params
-        puts "***********************************"
-    # limitcode = Integer(params["user_limit"])
-    limitcode = 5
-    limithash = {}
-    UserInfo::USER_LIMIT.each do |key,value|
-      if (limitcode & key) > 0
-        limithash.store(value,key.to_s) 
-      end
-    end
-    params.store("limit",limithash)
   end
 
   # POST /user_infos
   # POST /user_infos.json
   def create
-    # calculate the user_limit code depand on which check box checked and save it into params
-    limit = params["limit"]
-    limitcode = 0
-    limit.each do |key,value|
-      limitcode = limitcode + Integer(value)
-    end
-    params["user_info"]["user_limit"] = limitcode.to_s
+    user_limit_update
 
     # save the user info into DB
     @user_info = UserInfo.new(user_info_params)
@@ -72,6 +43,8 @@ class UserInfosController < ApplicationController
   # PATCH/PUT /user_infos/1
   # PATCH/PUT /user_infos/1.json
   def update
+    user_limit_update
+
     respond_to do |format|
       if @user_info.update(user_info_params)
         format.html { redirect_to @user_info, notice: 'User info was successfully updated.' }
@@ -102,5 +75,17 @@ class UserInfosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_info_params
       params.require(:user_info).permit(:user_id, :user_password, :user_name, :user_sex, :user_birth, :user_phone_number, :user_company, :user_department, :user_kind, :user_limit, :user_info)
+    end
+
+    def user_limit_update
+      # calculate the user_limit code depand on which check box checked and save it into params
+      limit = params["limit"]
+      limitcode = 0
+      if limit != nil
+        limit.each do |key,value|
+          limitcode = limitcode + Integer(value)
+        end
+      end
+      params["user_info"]["user_limit"] = limitcode.to_s
     end
 end

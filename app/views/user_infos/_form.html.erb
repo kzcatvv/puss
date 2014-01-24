@@ -52,7 +52,7 @@
     <%= f.number_field :user_limit %>
 
     <%for limit in UserInfo::USER_LIMIT%>
-      <%= check_box_tag("limit[#{limit[1]}]", limit[0])%>
+      <%= check_box_tag("limit[#{limit[1]}]", limit[0], (@user_info.user_limit && (@user_info.user_limit & limit[0] > 0))?true:false)%>
       <%= limit[1] %>
     <% end %>
 

@@ -47,7 +47,11 @@
 
 <p>
   <strong>User limit:</strong>
-  <%= @user_info.user_limit %>
+  <%for limit in UserInfo::USER_LIMIT%>
+    <% if (@user_info.user_limit & limit[0]) > 0 %>
+      <%= limit[1] %>&nbsp;
+    <% end %>
+  <% end %>
 </p>
 
 <p>
