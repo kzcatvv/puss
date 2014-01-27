@@ -1,0 +1,51 @@
+<%= form_for(@place_info) do |f| %>
+  <% if @place_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@place_info.errors.count, "error") %> prohibited this place_info from being saved:</h2>
+
+      <ul>
+      <% @place_info.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :场地种类 %><br>
+    <%= f.select(:place_kind, PlaceInfo::PLACE_KIND.collect{|x| [x[1],x[0]]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :place_name %><br>
+    <%= f.text_field :place_name %>
+  </div>
+  <div class="field">
+    <%= f.label :开场时间 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :工作日 %><br>
+    <%= f.text_field :place_workday_start1 %>~<%= f.text_field :place_workday_end1 %><br>
+    <%= f.text_field :place_workday_start2 %>~<%= f.text_field :place_workday_end2 %><br>
+    <%= f.text_field :place_workday_start3 %>~<%= f.text_field :place_workday_end3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :周末 %><br>
+    <%= f.text_field :place_weekend_start1 %>~<%= f.text_field :place_weekend_end1 %><br>
+    <%= f.text_field :place_weekend_start2 %>~<%= f.text_field :place_weekend_end2 %><br>
+    <%= f.text_field :place_weekend_start3 %>~<%= f.text_field :place_weekend_end3 %>
+  </div>
+  <div class="field">
+    <%= f.label :节假日 %><br>
+    <%= f.text_field :place_holiday_start1 %>~<%= f.text_field :place_holiday_end1 %><br>
+    <%= f.text_field :place_holiday_start2 %>~<%= f.text_field :place_holiday_end2 %><br>
+    <%= f.text_field :place_holiday_start3 %>~<%= f.text_field :place_holiday_end3 %>
+  </div>
+  <div class="field">
+    <%= f.label :place_info %><br>
+    <%= f.text_area :place_info %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

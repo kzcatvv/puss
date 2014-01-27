@@ -1,0 +1,2 @@
+module PlaceInfosHelper
+end

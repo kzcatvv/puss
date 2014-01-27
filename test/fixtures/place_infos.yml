@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place_kind: MyString
+  place_no: MyString
+  place_name: MyString
+  place_workday_start1: MyString
+  place_workday_end1: MyString
+  place_workday_start2: MyString
+  place_workday_end2: MyString
+  place_workday_start3: MyString
+  place_workday_end3: MyString
+  place_weekend_start1: MyString
+  place_weekend_end1: MyString
+  place_weekend_start2: MyString
+  place_weekend_end2: MyString
+  place_weekend_start3: MyString
+  place_weekend_end3: MyString
+  place_holiday_start1: MyString
+  place_holiday_end1: MyString
+  place_holiday_start2: MyString
+  place_holiday_end2: MyString
+  place_holiday_start3: MyString
+  place_holiday_end3: MyString
+  place_info: MyText
+
+two:
+  place_kind: MyString
+  place_no: MyString
+  place_name: MyString
+  place_workday_start1: MyString
+  place_workday_end1: MyString
+  place_workday_start2: MyString
+  place_workday_end2: MyString
+  place_workday_start3: MyString
+  place_workday_end3: MyString
+  place_weekend_start1: MyString
+  place_weekend_end1: MyString
+  place_weekend_start2: MyString
+  place_weekend_end2: MyString
+  place_weekend_start3: MyString
+  place_weekend_end3: MyString
+  place_holiday_start1: MyString
+  place_holiday_end1: MyString
+  place_holiday_start2: MyString
+  place_holiday_end2: MyString
+  place_holiday_start3: MyString
+  place_holiday_end3: MyString
+  place_info: MyText

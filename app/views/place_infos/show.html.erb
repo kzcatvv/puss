@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Place kind:</strong>
+  <%= PlaceInfo::PLACE_KIND[@place_info.place_kind] %>
+</p>
+
+<p>
+  <strong>Place no:</strong>
+  <%= @place_info.place_no %>
+</p>
+
+<p>
+  <strong>Place name:</strong>
+  <%= @place_info.place_name %>
+</p>
+
+<p>
+  <table>
+    <tr><strong>open time</strong></tr>
+    <tr>
+      <td align="left" valign="top" rowspan="3">workday:</td>
+      <td align="center"><%= @place_info.place_workday_start1 %>~<%= @place_info.place_workday_end1 %></td>
+    </tr>
+    <tr>
+      <td align="center"><%= @place_info.place_workday_start2 %>~<%= @place_info.place_workday_end2 %>
+      </td>
+    </tr>
+    <tr>
+      <td align="center"><%= @place_info.place_workday_start3 %>~<%= @place_info.place_workday_end3 %>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top" rowspan="3">weekend:</td>
+      <td align="center"><%= @place_info.place_weekend_start1 %>~<%= @place_info.place_weekend_end1 %></td>
+    </tr>
+    <tr>
+      <td align="center"><%= @place_info.place_weekend_start2 %>~<%= @place_info.place_weekend_end2 %>
+      </td>
+    </tr>
+    <tr>
+      <td align="center"><%= @place_info.place_weekend_start3 %>~<%= @place_info.place_weekend_end3 %>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top" rowspan="3">holiday:</td>
+      <td align="center"><%= @place_info.place_holiday_start1 %>~<%= @place_info.place_holiday_end1 %></td>
+    </tr>
+    <tr>
+      <td align="center"><%= @place_info.place_holiday_start2 %>~<%= @place_info.place_holiday_end2 %>
+      </td>
+    </tr>
+    <tr>
+      <td align="center"><%= @place_info.place_holiday_start3 %>~<%= @place_info.place_holiday_end3 %>
+      </td>
+    </tr>
+  </table>
+</p>
+
+<p>
+  <strong>Place info:</strong>
+  <%= @place_info.place_info %>
+</p>
+
+<%= link_to 'Edit', edit_place_info_path(@place_info) %> |
+<%= link_to 'Back', place_infos_path %>
