@@ -1,10 +1,8 @@
 <h1>Listing user_infos</h1>
-
 <table>
   <thead>
     <tr>
       <th>User ID</th>
-      <th>User password</th>
       <th>User name</th>
       <th>User sex</th>
       <th>User birth</th>
@@ -24,7 +22,6 @@
     <% @user_infos.each do |user_info| %>
       <tr>
         <td><%= user_info.user_id %></td>
-        <td><%= user_info.user_password %></td>
         <td><%= user_info.user_name %></td>
         <td><%= UserInfo::USER_SEX[user_info.user_sex] %></td>
         <td><%= user_info.user_birth %></td>

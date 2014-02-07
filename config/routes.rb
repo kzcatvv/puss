@@ -1,7 +1,13 @@
 Puss::Application.routes.draw do
+  root :to => "sessions#new"
+
   resources :place_infos
 
   resources :user_infos
+
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signin',  to:'sessions#new',      via:'get'
+  match '/singout', to:'sessions#destroy',  via:'delete'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -19,6 +19,7 @@ class UserInfosController < ApplicationController
 
   # GET /user_infos/1/edit
   def edit
+    puts @user_info.password_digest
   end
 
   # POST /user_infos
@@ -45,6 +46,10 @@ class UserInfosController < ApplicationController
   def update
     user_limit_update
 
+    if params["user_info"]["password"] == nil
+      params["user_info"]["password"] = @user_current_password
+    end
+
     respond_to do |format|
       if @user_info.update(user_info_params)
         format.html { redirect_to @user_info, notice: 'User info was successfully updated.' }
@@ -70,11 +75,12 @@ class UserInfosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user_info
       @user_info = UserInfo.find(params[:id])
+      @user_current_password = @user_info.password_digest
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_info_params
-      params.require(:user_info).permit(:user_id, :user_password, :user_name, :user_sex, :user_birth, :user_phone_number, :user_company, :user_department, :user_kind, :user_limit, :user_info)
+      params.require(:user_info).permit(:user_id, :password, :password_confirmation, :user_name, :user_sex, :user_birth, :user_phone_number, :user_company, :user_department, :user_kind, :user_limit, :user_info)
     end
 
     def user_limit_update

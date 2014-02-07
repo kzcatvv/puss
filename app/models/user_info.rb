@@ -4,8 +4,12 @@ class UserInfo < ActiveRecord::Base
 	USER_LIMIT = {1 => "食堂订餐", 2 => "羽毛球预定", 4 => "others"}
 
 	validates :user_id, :presence => true,
-			  :length => {:minimum => 6}
-	validates :user_password, :presence => true,
 			  :length => {:minimum => 5}
+
+	#validates :password, :presence => true,
+    #          :length => {:minimum => 5 }
+    #validates :password_confirmation, :presence => true
+
+	has_secure_password
 
 end

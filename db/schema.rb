@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140124083933) do
+ActiveRecord::Schema.define(version: 20140128020106) do
 
   create_table "place_infos", force: true do |t|
     t.string   "place_kind"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20140124083933) do
 
   create_table "user_infos", force: true do |t|
     t.string   "user_id"
-    t.string   "user_password"
     t.string   "user_name"
     t.string   "user_sex"
     t.string   "user_birth"
@@ -54,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140124083933) do
     t.text     "user_info"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
